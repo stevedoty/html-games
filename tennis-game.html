@@ -1,0 +1,39 @@
+<html>
+<b>text here</b>
+<canvas id="gameCanvas" height="600" width="800"></canvas>
+
+<script>
+var canvas;
+var canvasContext;
+var ballX = 50;
+var ballY = 50;
+var ballSpeedX = 5;
+var ballSpeedY = -5;
+window.onload = function() {
+  console.log('hello world')
+  canvas = document.getElementById('gameCanvas');
+  canvasContext = canvas.getContext('2d');
+  var framesPerSecond = 60
+  setInterval(
+    function(){
+      moveEverything();
+      drawEverything();
+    },
+    1000/framesPerSecond
+  );
+}
+
+function moveEverything(){
+  ballX = ballX + ballSpeedX;
+}
+function drawEverything(){
+  canvasContext.fillStyle = "black";
+  canvasContext.fillRect(0,0,canvas.width,canvas.height);
+  canvasContext.fillStyle = 'white';
+  canvasContext.fillRect(225,210,50,200);
+  canvasContext.fillStyle = 'green';
+  canvasContext.fillRect(ballX,ballY,10,10);
+}
+</script>
+
+</html>
