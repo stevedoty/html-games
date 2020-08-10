@@ -55,13 +55,19 @@ function drawEverything(){
   colorRect(225,210,50,200,"white");
 
   //draw ball
-  colorRect(ballX,ballY,10,10,"lightgreen");
+  colorCircle(ballX,ballY,5,"lightgreen");
 }
 
 //draw rectangle method
 function colorRect(leftX,rightY,width,height,drawColor){
   canvasContext.fillStyle = drawColor;
   canvasContext.fillRect(leftX,rightY,width,height);
+}
+function colorCircle(centerX, centerY, radius, drawColor){
+  canvasContext.fillStyle = drawColor;
+  canvasContext.beginPath();
+  canvasContext.arc(centerX, centerY, radius, 0, Math.PI*2, true);
+  canvasContext.fill();
 }
 
 </script>
